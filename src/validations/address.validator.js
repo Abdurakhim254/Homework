@@ -3,7 +3,7 @@ import Joi from "joi";
 export const checkaddressdatavalidate=Joi.object({
     user_id:Joi.number().integer().min(1).required(),
     title:Joi.string().min(5).required(),
-    created_at:Joi.string().required(),
+    created_at:Joi.string(),
     address_line_1:Joi.string().min(5).required(),
     address_line_2:Joi.string().min(5).required(),
     country:Joi.string().min(5).required(),

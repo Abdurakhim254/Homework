@@ -14,7 +14,7 @@ export const getaddressByIdcon=async(req,res)=>{
     try {
         const {id}=req.params
         const result=await getaddresByid(id)
-        console.log(result)
+    
         res.status(200).send(result)
     } catch (error) {
         logger.error(error)
@@ -26,11 +26,11 @@ export const Createaddresscon=async(req,res)=>{
     try {
         const {user_id,title,created_at,address_line_1,address_line_2,country,city,postal_code,phone_number,landmark}=req.body
         const result=await createaddress(user_id,title,created_at,address_line_1,address_line_2,country,city,postal_code,phone_number,landmark)
-        console.log(req.body)
-        res.send("ok")
+    
+        res.send(result)
     } catch (error) {
         logger.error(error)
-        res.status(400).send(error)
+        res.status(400).send(error.message)
     }
 }
 
@@ -39,7 +39,7 @@ export const Updateaddresscon=async(req,res)=>{
         const {id}=req.params
         const {user_id,title,created_at,address_line_1,address_line_2,country,city,postal_code,phone_number,landmark}=req.body
         const result=await updateaddressByid(user_id,title,created_at,address_line_1,address_line_2,country,city,postal_code,phone_number,landmark,id)
-        res.send('ok')
+
     } catch (error) {
         logger.error(error.message)
         res.status(400).send(error.message)
