@@ -41,8 +41,8 @@ export const Updateaddresscon=async(req,res)=>{
         const result=await updateaddressByid(user_id,title,created_at,address_line_1,address_line_2,country,city,postal_code,phone_number,landmark,id)
         res.send('ok')
     } catch (error) {
-        logger.error(error)
-        res.status(400).send(error)
+        logger.error(error.message)
+        res.status(400).send(error.message)
     }
 }
 

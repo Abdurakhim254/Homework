@@ -7,7 +7,7 @@ export const createAddresstable=async()=>{
                 id serial primary key,
                 user_id int,foreign key(user_id) references users(id),
                 title varchar  not null,
-                created_at timestamp not null,
+                created_at timestamp without time zone,
                 address_line_1  varchar not null,
                 address_line_2  varchar not null,
                 country varchar,
