@@ -1,7 +1,7 @@
 import express from "express"
 import morgan from "morgan"
 
-import { addressrouter, socialrouter, userrouter, } from "./routes/index.js"
+import { addressrouter, categoryroutes, socialrouter, userrouter, } from "./routes/index.js"
 import {createAlltables} from "./schema/index.js"
 
 const app=express()
@@ -17,6 +17,7 @@ app.use("/auth",userrouter)
 app.use("/users",userrouter)
 app.use("/social",socialrouter)
 app.use("/address",addressrouter)
+app.use("/category",categoryroutes)
 
 app.get("/",(req,res)=>{
     res.send('ok')

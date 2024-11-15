@@ -1,6 +1,6 @@
 import { logger } from "../../utils/logger.js"
-import {pool} from "../../Database/index.js"
-export const createAddresstable=async()=>{
+import { pool } from "../../Database/index.js"
+export const createAddresstable = async () => {
     try {
         await pool.query(`
         CREATE TABLE IF NOT EXISTS address(
