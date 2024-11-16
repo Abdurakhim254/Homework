@@ -15,9 +15,13 @@ export const loginCon=async(req,res)=>{
     try {
         const {email,password}=req.body
         const result=await login(email,password)
-        // const role=result.role
-        // const accessToken=await createToken({email,})
-        res.status(200).send(result)
+        const role=result[0].role
+        const accessToken=await createToken({email,role})
+        if(result=="User topilmadi"){
+            res.status(200).send(result)
+        }else{
+            res.status(200).send({result,accessToken})
+        }
     } catch (error) {
         logger.error(error)
         res.status(400).send(error.message)
