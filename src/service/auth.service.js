@@ -22,7 +22,7 @@ export const login=async(email,password)=>{
     const query="Select * from users where email=$1 and password=$2"
     const result=await pool.query(query,[email,password])
     if(result.rows.length>=1){
-        return "Login qildingiz"
+        return result.rows
     }
     return "User topilmadi"
 }

@@ -3,6 +3,7 @@ import morgan from "morgan"
 
 import { addressrouter, categoryroutes, socialrouter, userrouter, } from "./routes/index.js"
 import {createAlltables} from "./schema/index.js"
+import { productrouter } from "./routes/product.routes.js"
 
 const app=express()
 
@@ -18,16 +19,13 @@ app.use("/users",userrouter)
 app.use("/social",socialrouter)
 app.use("/address",addressrouter)
 app.use("/category",categoryroutes)
+app.use("/product",productrouter)
 
 app.get("/",(req,res)=>{
     res.send('ok')
 })
 
 
-// app.get("/setup",async(req,res)=>{
-//     await createUsertable()
-//     res.send("Table created")
-// })
 
 app.get("/setup",async(req,res)=>{
     await createAlltables()
