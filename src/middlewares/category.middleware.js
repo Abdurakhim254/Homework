@@ -6,6 +6,7 @@ export const checkcategorydatamiddleware=(schema)=>{
         const {error}=schema.validate({name,description,tag,created_at,updated_at})
         if(error){
             res.status(400).send("Ma'lumot to'liqmas")
+            // res.status(400).send(error.message)
         }else{
             next()
         }

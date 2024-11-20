@@ -27,5 +27,3 @@ export const createProductable = async () => {
         return error
     }
 }
-
-await createProductable()

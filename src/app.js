@@ -1,7 +1,7 @@
 import express from "express"
 import morgan from "morgan"
 
-import { addressrouter, categoryroutes, socialrouter, userrouter, } from "./routes/index.js"
+import { addressrouter, cart_item_router, cartrouter, categoryroutes, ordersrotuter, reviewRouter, socialrouter, userrouter, whishlistrouter } from "./routes/index.js"
 import {createAlltables} from "./schema/index.js"
 import { productrouter } from "./routes/product.routes.js"
 
@@ -20,6 +20,11 @@ app.use("/social",socialrouter)
 app.use("/address",addressrouter)
 app.use("/category",categoryroutes)
 app.use("/product",productrouter)
+app.use("/whishlist",whishlistrouter)
+app.use("/review",reviewRouter)
+app.use("/cart",cartrouter)
+app.use("/order",ordersrotuter)
+app.use("/cart_item",cart_item_router)
 
 app.get("/",(req,res)=>{
     res.send('ok')
