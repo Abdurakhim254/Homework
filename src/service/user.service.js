@@ -43,3 +43,16 @@ export const updateuser=async({name,password,role,phone_number,is_active,birth_o
         return "Yangilanadigan User topilmadi"
     }
 }
+
+export const findByid=async(id)=>{
+    const query='Select * from users where id=$1'
+    const result=await pool.query(query,[id])
+    return result.rows
+}
+
+
+export const findbyusername=async(username)=>{
+    const query='Select * from users where username=$1'
+    const result=await pool.query(query,[username])
+    return result.rows
+}
